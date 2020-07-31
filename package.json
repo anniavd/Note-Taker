@@ -1,0 +1,26 @@
+{
+  "name": "note-taker",
+  "version": "1.0.0",
+  "description": "Note taker is an application for writing notes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anniavd/Note-Taker.git"
+  },
+  "author": "annia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anniavd/Note-Taker/issues"
+  },
+  "homepage": "https://github.com/anniavd/Note-Taker#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
