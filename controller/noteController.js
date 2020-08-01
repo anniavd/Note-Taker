@@ -34,27 +34,8 @@ module.exports = {
       })
 
     })
-  },
-  //delete a note from the api db
-  deleteNote: (req, res) => {
-    let id = req.params.id;
-    fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', function (error, data) {
-
-      const noteArray = JSON.parse(data);
-      console.log('longitud', noteArray.length)
-      console.log('array', noteArray)
-      for (let i = 0; i < noteArray.length; i++) {
-        if (noteArray[i].id === id) {
-
-          noteArray.splice(i, 1)
-        }
-      }
-      fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(noteArray), function (error, data) {
-        res.json("Done")
-        console.log('array', noteArray)
-      })
-    })
   }
+ 
 }
 
 
