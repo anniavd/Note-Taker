@@ -1,49 +1,27 @@
-//const apiRoutes = require('./routes/apiRoutes');
-//const htmlRoutes = require('./routes/htmlRoutes');
-const fs = require('fs');
-const path = require('path');
-const {db}=require('./data/db.json')
-const express = require('express');//include the express  package
+const express = require('express');
+const{db}=require('./db/db.json');
+
+//variable initialization
 const PORT = process.env.PORT || 3001;
-const app = express(); //instacia del servidor
+const app = express(); 
 
-// parse incoming string or array data
+//Middleware
 app.use(express.urlencoded({ extended: true }));
-
-// parse incoming JSON data
 app.use(express.json());
 
-//uses the items in public folder
+//Static folder
 app.use(express.static('public'));
 
-
-
-app.get('/api/notes', (req, res) => {
-
-  fs.readFile('./data/db.json', 'utf8', function (error, dat) {
-
-    res.json(JSON.parse(dat));
-  })
-
-});
-
-//return notes
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'));
-});
-
-
-//default return index
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
- 
+//Routes
+app.use('/api/notes', require('./routes/apiRoutes/noteRouter'))
+app.use(require('./routes/htmlRoutes'))
 
 
 
+//Server
 
-//listened port
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
+
+
