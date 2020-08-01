@@ -1,5 +1,6 @@
 const fs = require('fs');
-const path = require('path')
+const path = require('path');
+//const { delete } = require('../routes/apiRoutes/noteRouter');
 
 //console.log(__dirname)
 
@@ -34,7 +35,16 @@ module.exports = {
       })
 
     })
-  }
+  },
+     /* deleteNote:(req,res)=>{
+        fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', function (error, data) {
+       const noteArray=JSON.parse(data); 
+        for (let i=0;i<noteArray.length;i++) 
+          if(req.params.id===notearray)
+          noteArray=noteArray.filter(delete=>delete)
+
+    }*/
+  
  
 }
 
