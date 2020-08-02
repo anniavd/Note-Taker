@@ -9,9 +9,9 @@
 Note Taker application is to write notes of any type that the user wants a reminder of their activities.The user can view the note content once they select a note from the list.
   
  
- ![Homepage](/assets/images/)
+ ![Homepage](/assets/images/home-page.jpg)
 
- Visit the site! [name site](https://heroku)
+ Visit the site! [Note Taker](https://powerful-peak-58251.herokuapp.com/)
  
 
 # Usage 
