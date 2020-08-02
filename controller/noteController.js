@@ -40,13 +40,12 @@ module.exports = {
     let noteArray = JSON.parse(data); 
     //compare the id used filter for back a new array without the matching element
      newArray = noteArray.filter((note) => note.id != id );
-     console.log('new array',newArray) 
-
+    
      //write the new elements to db
     fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(newArray), function (error, data) {
       res.json("Done")
     })
-    //res.json({message :`Deleted id:  ${id}`, array:newArray})
+   
      })   
 }
     
