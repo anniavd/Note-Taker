@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
-
+let newArray=[];//new array for work in delete note
 
 
 module.exports = {
   //show all the data from db 
   getNote: (req, res) => {
     fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', function (error, data) {
-      console.log("Data from getnote " + data)
+      
       res.json(JSON.parse(data));
 
     })
@@ -24,21 +24,31 @@ module.exports = {
       //create the new note for add
       var newNote = { "title": req.body.title, "text": req.body.text, "id": newId };
       dbnote.push(newNote)      
-      //write the new api bb 
+      //write the new api db 
       fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(dbnote), function (error, data) {
         res.json("Done")
       })
 
     })
   },
-   deleteNote:(req,res)=>{
-     fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', function (error, data) {
-    let noteArray=JSON.parse(data); 
-     noteArray=noteArray.filter(no=>no.id!==req.params.id);
-      console.log('new array',noteArray)
-       
-      })   
- }
+  deleteNote:(req,res)=>{
+     
+    let id = req.params.id
+
+   //reading the api db
+    fs.readFile(path.join(__dirname, '../db/db.json'), 'utf8', function (error, data) {
+    let noteArray = JSON.parse(data); 
+    //compare the id used filter for back a new array without the matching element
+     newArray = noteArray.filter((note) => note.id != id );
+     console.log('new array',newArray) 
+
+     //write the new elements to db
+    fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(newArray), function (error, data) {
+      res.json("Done")
+    })
+    //res.json({message :`Deleted id:  ${id}`, array:newArray})
+     })   
+}
     
 }
 

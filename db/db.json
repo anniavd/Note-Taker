@@ -1,1 +1,1 @@
-[{"title":"Test Title","text":"Test text","id":1},{"title":"Connect all the info","text":"all the html are connect with the api","id":2},{"title":"New branch","text":"branch for delete data","id":3},{"title":"Merge to develop","text":"update develop","id":4},{"title":"Don't work","text":"delete function","id":5}]
+[{"title":"Test Title","text":"Test text","id":1},{"title":"Create note","text":"write a description","id":2},{"title":"Learning express","text":"used express with other technologies","id":3},{"title":"Deploy app","text":"deployed in heroku","id":4}]
